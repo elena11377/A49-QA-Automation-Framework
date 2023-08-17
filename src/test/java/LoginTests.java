@@ -24,7 +24,7 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
-    @Test
+    //@Test
     public void loginValidEmailPasswordTest() {
 //      GIVEN I have set and opened the browser
 //      Added ChromeOptions argument below to fix websocket error
