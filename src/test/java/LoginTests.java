@@ -37,11 +37,13 @@ public class LoginTests extends BaseTest {
         String url = "https://qa.koel.app/";
         driver.get(url);
 
-        // AND navigate ti the registration button
+        // AND navigate to the registration button
         WebElement registrationLink = driver.findElement(By.cssSelector("[href='registration']"));
+
         //AND I click on "registration"
         registrationLink.click();
-// THEN registration page displayed
+
+        // THEN registration page displayed
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
