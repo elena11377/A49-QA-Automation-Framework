@@ -46,7 +46,8 @@ public class LoginTests extends BaseTest {
 
         // THEN registration page displayed
         String registrationUrl = "https://qa.koel.app/registration";
+
         Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
-        driver.quit();
+        //driver.quit();
     }
 }
