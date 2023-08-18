@@ -24,6 +24,7 @@ public class LoginTests extends BaseTest {
         driver.quit();
     }
 
+
     @Test
     public void registrationNavigation() {
 //Given Open the browser
@@ -44,7 +45,8 @@ public class LoginTests extends BaseTest {
         registrationLink.click();
 
         // THEN registration page displayed
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        String registrationUrl = "https://qa.koel.app/registration";
+        Assert.assertEquals(driver.getCurrentUrl(), registrationUrl);
         driver.quit();
     }
 }
