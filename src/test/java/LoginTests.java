@@ -1,3 +1,4 @@
+//Lesson 16
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,16 +11,77 @@ import java.time.Duration;
 
 public class LoginTests extends BaseTest {
     @Test
-    public void loginEmptyEmailPassword() {
+
+    // GIVEN I have set and opened the browser
+    public void loginValidEmailPassword() {
 //      Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--remote-allow-origins=*"); //to work successfully, it needs to be provided everytime
+        options.addArguments("--start-maximized"); //maximized browser/window
 
         WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 
+        /// WHEN I opened my URL/website link
         String url = "https://qa.koel.app/";
         driver.get(url);
+
+        /// AND I enter valid login
+        WebElement loginInput = driver.findElement(By.cssSelector("[type='email']"));
+        loginInput.click();
+        loginInput.clear();  //deleting any input for "login email" field
+        loginInput.sendKeys("elena.min@testpro.io");
+
+        ///AND I enter valid password
+        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+        passwordInput.click();
+        passwordInput.clear();  //deleting any input for "login email" field
+        passwordInput.sendKeys("te$t$tudent");
+
+        ///AND I click Login button
+        WebElement loginBtn = driver.findElement(By.cssSelector("[type='submit']"));
+        loginBtn.click();
+
+
+        //THEN Avatar is dsiplayed (Actual result)
+        WebElement avatar  = driver.findElement(By.cssSelector(".avatar"));
+        Assert.assertTrue(avatar.isDisplayed());
+        //driver.quit();
+    }
+
+    // GIVEN I have set and opened the browser
+
+    public void loginInvalidEmailPassword() {
+//      Added ChromeOptions argument below to fix websocket error
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*"); //to work successfully, it needs to be provided everytime
+        options.addArguments("--start-maximized"); //maximized browser/window
+
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+
+        /// WHEN I opened my URL/website link
+        String url = "https://qa.koel.app/";
+        driver.get(url);
+
+        /// AND I enter valid login
+        WebElement loginInput = driver.findElement(By.cssSelector("[type='email']"));
+        loginInput.click();
+        loginInput.clear();  //deleting any input for "login email" field
+        loginInput.sendKeys("notExisting@testpro.io");
+
+        ///AND I enter valid password
+        WebElement passwordInput = driver.findElement(By.cssSelector("[type='password']"));
+        passwordInput.click();
+        passwordInput.clear();  //deleting any input for "login email" field
+        passwordInput.sendKeys("te$t$tudent");
+
+        ///AND I click Login button
+        WebElement loginBtn = driver.findElement(By.cssSelector("[type='submit']"));
+        loginBtn.click();
+
+
+        //THEN URL has not changed
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
