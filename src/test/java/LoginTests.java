@@ -1,4 +1,5 @@
 //Lesson 16
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,7 +47,7 @@ public class LoginTests extends BaseTest {
         //THEN Avatar is dsiplayed (Actual result)
         WebElement avatar  = driver.findElement(By.cssSelector(".avatar"));
         Assert.assertTrue(avatar.isDisplayed());
-        //driver.quit();
+        driver.quit();
     }
 
     // GIVEN I have set and opened the browser
@@ -86,3 +87,4 @@ public class LoginTests extends BaseTest {
         driver.quit();
     }
 }
+//done
