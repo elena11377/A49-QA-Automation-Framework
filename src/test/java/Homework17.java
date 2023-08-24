@@ -14,36 +14,41 @@ public class Homework17 extends BaseTest {
         clickOnAddToBtn();
         enterNewUniquePlaylistName();
         verifySuccessMessage();
+        getAddToPlaylistMessage();
     }
 
-    private void verifySuccessMessage() {
+    public void verifySuccessMessage() {
         WebElement successBanner = driver.findElement(By.cssSelector(".success"));
         Assert.assertTrue(successBanner.isDisplayed());
     }
 
-    private void enterNewUniquePlaylistName() {
+    public void enterNewUniquePlaylistName() {
         enterText(By.cssSelector("#songResultsWrapper [data-test='new-playlist-name']"), generateRandomName());
         WebElement submitBtn =  driver.findElement(By.cssSelector("#songResultsWrapper [type='submit']"));
         submitBtn.click();
     }
 
-    private void clickOnAddToBtn() {
+    public void clickOnAddToBtn() {
         WebElement addToBtn = driver.findElement(By.cssSelector(".btn-add-to"));
         addToBtn.click();
     }
 
-    private void clickOnSongTitle() {
+    public void clickOnSongTitle() {
         WebElement songTitle = driver.findElement(By.cssSelector(".search-results .song-item .title"));
         songTitle.click();
     }
 
-    private void enterSongIntoSearchInput() {
+    public void enterSongIntoSearchInput() {
         enterText(By.cssSelector("[type='search']"), "Reactor");
     }
 
-    private void clickViewAllBtn() {
+    public void clickViewAllBtn() {
         WebElement viewAllBtn = driver.findElement(By.cssSelector("[data-test='view-all-songs-btn']"));
         viewAllBtn.click();
+    }
+
+    public void getAddToPlaylistMessage(){
+        WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
     }
 
 }
