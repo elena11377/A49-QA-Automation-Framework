@@ -16,6 +16,10 @@ public class LoginTests extends BaseTest {
 
     @Test (enabled = true, priority = 1, description = "Login with valid email and valid password")
     public void loginValidEmailPassword(){
+
+        navigateToPage();
+        provideEmail("elena.min@testpro.io");
+        providePassword("te$t$tudent");
         loginWithCorrectCreds();
         isAvatarDisplayed();
     }
@@ -24,7 +28,7 @@ public class LoginTests extends BaseTest {
     public void loginValidEmailEmptyPassword() {
 
         navigateToPage();
-        provideEmail("demo@class.com");
+        provideEmail("elena.min@testpro.io");
         providePassword("");
         clickSubmit();
 

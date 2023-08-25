@@ -92,7 +92,8 @@ public class BaseTest {
 
     protected void loginWithCorrectCreds() {
         navigateToPage();
-        provideEmail("demo@class.com");
+        //provideEmail("demo@class.com");
+        provideEmail("elena.min@testpro.io");
         providePassword("te$t$tudent");
         clickSubmit();
     }
