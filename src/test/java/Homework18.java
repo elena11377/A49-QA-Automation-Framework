@@ -9,8 +9,7 @@ public class Homework18 extends BaseTest {
     public void playSong(){
 
         navigateToPage();
-
-    provideEmail("elena.min@testpro.io");
+        provideEmail("elena.min@testpro.io");
     providePassword("te$t$tudent");
     clickSubmit();
     //Thread.sleep(3000);
@@ -29,3 +28,5 @@ public boolean isSongPlaying(){
         return soundBar.isDisplayed();
 }
 }
+
+//test passed
