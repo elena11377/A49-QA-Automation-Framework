@@ -15,7 +15,8 @@ import java.util.UUID;
 
 public class BaseTest {
     public WebDriver driver = null;
-    public String url = "https://qa.koel.app/";
+    //public String url = "https://qa.koel.app/";
+    public String url;
 
     @BeforeSuite
     static void setupClass() {
@@ -23,12 +24,15 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void launchBrowser() {
+    @Parameters({"BaseURL"})
+    public void launchBrowser(String baseURL) {
         //Added ChromeOptions argument below to fix websocket error
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-notifications");
         options.addArguments("--start-maximized");
+
+        url = baseURL;
 
 
         driver = new ChromeDriver(options);
