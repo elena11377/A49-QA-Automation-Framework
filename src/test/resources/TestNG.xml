@@ -10,6 +10,9 @@
 <!--            <class name="ProfileTests"/>-->
 <!--            <class name="Homework17"/>-->
 <!--            <class name="Homework18"/>-->
+<!--            <methods>-->
+<!--                <include name="loginInvalidCredentials"/>-->
+<!--            </methods>-->
         </classes>
     </test>
 </suite>

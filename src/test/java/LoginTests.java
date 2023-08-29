@@ -31,10 +31,11 @@ public class LoginTests extends BaseTest {
 //    }
 
     //lesson19
+    @Test
     public void loginInvalidCredentials() throws InterruptedException{
         navigateToPage();
         provideEmail("incorrectEmail@testpro.io");
-        provideCurrentPassword("incorrectPassword");
+        providePassword("incorrectPassword");
         clickSubmit();
         Thread.sleep(3000);
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
