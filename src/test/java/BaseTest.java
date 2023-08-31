@@ -5,10 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 import java.util.UUID;
@@ -65,49 +62,59 @@ public class BaseTest {
         submit.click();
     }
 
-    public void clickAvatarIcon() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
-        avatarIcon.click();
+    @DataProvider(name="IncorrectLoginData")
+    public Object[][] getDataFromDataProviders(){
+        return new Object [][]{
+            {"nonExisting@gmail.com", "nonExistingPassword"},
+            {"elena.min@testpro.io", " "},
+            {"",""},
+        };
     }
 
-    public void provideCurrentPassword(String password) {
-        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
-        currentPassword.clear();
-        currentPassword.sendKeys(password);
-    }
 
-    public void clickSaveButton() {
-        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
-        saveButton.click();
-    }
-
-    public void provideProfileName(String randomName) {
-        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
-        profileName.clear();
-        profileName.sendKeys(randomName);
-    }
-
-    public void isAvatarDisplayed() {
-        WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
-        Assert.assertTrue(avatarIcon.isDisplayed());
-    }
-
-    public String generateRandomName() {
-        return UUID.randomUUID().toString().replace("-", "");
-    }
-
-    protected void loginWithCorrectCreds() {
-        navigateToPage();
-        //provideEmail("demo@class.com");
-        provideEmail("elena.min@testpro.io");
-        providePassword("te$t$tudent");
-        clickSubmit();
-    }
-
-    protected void enterText(By inputLocator, String inputText) {
-        WebElement searchInput = driver.findElement(inputLocator);
-        searchInput.click();
-        searchInput.clear();
-        searchInput.sendKeys(inputText);
-    }
+//    public void clickAvatarIcon() {
+//        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+//        avatarIcon.click();
+//    }
+//
+//    public void provideCurrentPassword(String password) {
+//        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
+//        currentPassword.clear();
+//        currentPassword.sendKeys(password);
+//    }
+//
+//    public void clickSaveButton() {
+//        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+//        saveButton.click();
+//    }
+//
+//    public void provideProfileName(String randomName) {
+//        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
+//        profileName.clear();
+//        profileName.sendKeys(randomName);
+//    }
+//
+//    public void isAvatarDisplayed() {
+//        WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+//        Assert.assertTrue(avatarIcon.isDisplayed());
+//    }
+//
+//    public String generateRandomName() {
+//        return UUID.randomUUID().toString().replace("-", "");
+//    }
+//
+//    protected void loginWithCorrectCreds() {
+//        navigateToPage();
+//        //provideEmail("demo@class.com");
+//        provideEmail("elena.min@testpro.io");
+//        providePassword("te$t$tudent");
+//        clickSubmit();
+//    }
+//
+//    protected void enterText(By inputLocator, String inputText) {
+//        WebElement searchInput = driver.findElement(inputLocator);
+//        searchInput.click();
+//        searchInput.clear();
+//        searchInput.sendKeys(inputText);
+//    }
 }

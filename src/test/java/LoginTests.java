@@ -1,4 +1,5 @@
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
@@ -31,11 +32,11 @@ public class LoginTests extends BaseTest {
 //    }
 
     //lesson19
-    @Test
-    public void loginInvalidCredentials() throws InterruptedException{
+    @Test(dataProvider ="IncorrectLoginData")
+    public void loginInvalidCredentials(String email, String password) throws InterruptedException{
         navigateToPage();
-        provideEmail("incorrectEmail@testpro.io");
-        providePassword("incorrectPassword");
+        provideEmail(email);
+        providePassword(password);
         clickSubmit();
         Thread.sleep(3000);
         Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
