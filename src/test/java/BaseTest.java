@@ -29,11 +29,10 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--start-maximized");
 
-        url = baseURL;
-
-
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        url = baseURL;
+        navigateToPage();
     }
 
     @AfterMethod
