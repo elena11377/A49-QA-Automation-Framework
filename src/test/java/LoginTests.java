@@ -32,7 +32,7 @@ public class LoginTests extends BaseTest {
 //    }
 
     //lesson19
-    @Test(dataProvider ="IncorrectLoginData")
+    @Test(dataProvider ="IncorrectLoginData", dataProviderClass = BaseTest.class)
     public void loginInvalidCredentials(String email, String password) throws InterruptedException{
         navigateToPage();
         provideEmail(email);

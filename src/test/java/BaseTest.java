@@ -63,7 +63,7 @@ public class BaseTest {
     }
 
     @DataProvider(name="IncorrectLoginData")
-    public Object[][] getDataFromDataProviders(){
+    public static Object[][] getDataFromDataProviders(){
         return new Object [][]{
             {"nonExisting@gmail.com", "nonExistingPassword"},
             {"elena.min@testpro.io", " "},
