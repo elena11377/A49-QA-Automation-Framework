@@ -8,7 +8,7 @@ public class Homework19 extends BaseTest {
 
 @Test
     public void deletePlaylist() throws InterruptedException{
-    String expectedPlaylistDeleteMessage = "DeletedPlaylist\"Playlist PUT.\"";
+    String expectedPlaylistDeleteMessage = "Deleted playlist \"Playlist PUT.\"";
     provideEmail("elena.min@testpro.io");
     providePassword("te$t$tudent");
     clickSubmit();
@@ -18,7 +18,7 @@ public class Homework19 extends BaseTest {
 }
 
 public void openPlaylist(){
-    WebElement emptyPlaylist = driver.findElement(By.cssSelector(".playlist:nth-child(6)"));
+    WebElement emptyPlaylist = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
     emptyPlaylist.click();
 }
 
