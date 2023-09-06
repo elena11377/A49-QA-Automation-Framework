@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -15,9 +14,6 @@ public class BaseTest {
     public WebDriver driver = null;
     //public String url = "https://qa.koel.app/";
     public String url;
-
-    //HW20
-    WebDriverWait wait;
 
     @BeforeSuite
     static void setupClass() {
@@ -34,7 +30,7 @@ public class BaseTest {
         options.addArguments("--start-maximized");
 
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         url = baseURL;
         navigateToPage();
     }
@@ -65,12 +61,59 @@ public class BaseTest {
         submit.click();
     }
 
-    @DataProvider(name = "IncorrectLoginData")
-    public static Object[][] getDataFromDataProviders() {
-        return new Object[][]{
+    @DataProvider(name="IncorrectLoginData")
+    public static Object[][] getDataFromDataProviders(){
+        return new Object [][]{
                 {"nonExisting@gmail.com", "nonExistingPassword"},
                 {"elena.min@testpro.io", " "},
-                {"", ""},
+                {"",""},
         };
     }
+
+
+//    public void clickAvatarIcon() {
+//        WebElement avatarIcon = driver.findElement(By.cssSelector("img.avatar"));
+//        avatarIcon.click();
+//    }
+//
+//    public void provideCurrentPassword(String password) {
+//        WebElement currentPassword = driver.findElement(By.cssSelector("[name='current_password']"));
+//        currentPassword.clear();
+//        currentPassword.sendKeys(password);
+//    }
+//
+//    public void clickSaveButton() {
+//        WebElement saveButton = driver.findElement(By.cssSelector("button.btn-submit"));
+//        saveButton.click();
+//    }
+//
+//    public void provideProfileName(String randomName) {
+//        WebElement profileName = driver.findElement(By.cssSelector("[name='name']"));
+//        profileName.clear();
+//        profileName.sendKeys(randomName);
+//    }
+//
+//    public void isAvatarDisplayed() {
+//        WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+//        Assert.assertTrue(avatarIcon.isDisplayed());
+//    }
+//
+//    public String generateRandomName() {
+//        return UUID.randomUUID().toString().replace("-", "");
+//    }
+//
+//    protected void loginWithCorrectCreds() {
+//        navigateToPage();
+//        //provideEmail("demo@class.com");
+//        provideEmail("elena.min@testpro.io");
+//        providePassword("te$t$tudent");
+//        clickSubmit();
+//    }
+//
+//    protected void enterText(By inputLocator, String inputText) {
+//        WebElement searchInput = driver.findElement(inputLocator);
+//        searchInput.click();
+//        searchInput.clear();
+//        searchInput.sendKeys(inputText);
+//    }
 }
