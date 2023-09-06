@@ -59,13 +59,13 @@ public class BaseTest {
 
     public void providePassword(String password) {
        // WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
-        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(By.cssSelector("input[type='password']"))); //HW20
+        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='password']"))); //HW20
         passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     public void clickSubmit() {
-        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
+        //WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
         WebElement submit = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']"))); //HW20
         submit.click();
     }
