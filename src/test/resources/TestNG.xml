@@ -5,9 +5,15 @@
     <parameter name="BaseURL" value="https://qa.koel.app/"></parameter>
     <test name="Example Test" preserve-order="false">
         <classes>
-            <class name="tests.ActionsTest"/>
-<!--            <class name="tests.PlayListTests"/>-->
-            <class name="tests.Homework21Test"/>
+            <class name="Homework21"/>
+            <!--            <class name="LoginTests"/>-->
+            <!--            <class name="BaseTest"/>-->
+            <!--            <class name="ProfileTests"/>-->
+            <!--            <class name="Homework17"/>-->
+            <!--            <class name="Homework18"/>-->
+            <!--            <methods>-->
+            <!--                <include name="loginInvalidCredentials"/>-->
+            <!--            </methods>-->
         </classes>
     </test>
 </suite>
