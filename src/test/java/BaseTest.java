@@ -18,7 +18,7 @@ public class BaseTest {
     //public String url = "https://qa.koel.app/";
     public WebDriverWait wait = null; //HW20
     public String url;
-    public Actions action = null;
+    public Actions actions = null;
 
     @BeforeSuite
     static void setupClass() {
