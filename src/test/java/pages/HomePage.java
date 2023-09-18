@@ -14,6 +14,7 @@ public class HomePage extends BasePage{
     By renamePlaylistSuccessMsg = By.cssSelector("div.success.show");
 
     public void doubleClickPlaylist(){
+
         doubleClick(firstPLaylist);
     }
     public void enterNewPlaylistName(String playlistName){
