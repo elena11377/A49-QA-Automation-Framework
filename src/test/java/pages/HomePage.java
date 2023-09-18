@@ -15,14 +15,14 @@ public class HomePage extends BasePage{
 
     public void doubleClickPlaylist(){
 
-        doubleClick(firstPLaylist);
+        doubleClick(firstPlaylist);
     }
     public void enterNewPlaylistName(String playlistName){
         findElement(playlistNameField).sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.BACK_SPACE));
         findElement(playlistNameField).sendKeys(playlistName);
         findElement(playlistNameField).sendKeys(Keys.ENTER);
     }
-    public String getRenamePlaylistSuccessMessage(){
+    public String getRenamePlaylistSuccessMsg(){
         return findElement(renamePlaylistSuccessMsg).getText();
     }
 
