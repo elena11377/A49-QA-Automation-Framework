@@ -1,3 +1,6 @@
+import org.testng.Assert;
+import pages.LoginPage;
+
 public class Homework22 extends BaseTest{
 
     @test
