@@ -7,8 +7,8 @@ public class Homework22 extends BaseTest{
 
     @Test
     public void renamePlaylist(){
-        String newPlaylistName = "Elena Edited Playlist3";
-        String updatedPlaylistMsg = "Updated playlist \"Elena Edited Playlist3.\"";
+        String newPlaylistName = "Elena Edited Playlist";
+        String updatedPlaylistMsg = "Updated playlist \"Elena Edited Playlist.\"";
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
