@@ -26,5 +26,4 @@ public class HomePage extends BasePage{
     public String getRenamePlaylistSuccessMsg(){
         return findElement(renamePlaylistSuccessMsg).getText();
     }
-
 }
